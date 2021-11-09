@@ -20,7 +20,7 @@ public class DeliveryTest {
     void shouldFormDeliveryPositive() {
         RegistrationInfo person = DataGenerator.Registration.generateInfo("ru");
         open("http://localhost:9999");
-        $("[data-test-id='city'] input").setValue(person.getRegionCity()[person.getNum()]);
+        $("[data-test-id='city'] input").setValue(person.getCity());
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[data-test-id='date'] input").setValue(person.getDateFirst());
         $("[data-test-id='name'] input").setValue(person.getName());
