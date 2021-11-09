@@ -20,7 +20,7 @@ public class DataGenerator {
             LocalDate today = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
             return new RegistrationInfo(
-                    regionCity.getRegionCity()[faker.number().numberBetween(0, regionCity.getRegionCity().length-1)],
+                    regionCity.getRegionCity()[faker.number().numberBetween(0, regionCity.getRegionCity().length)],
                     faker.name().lastName() + " " + faker.name().firstName(),
                     faker.numerify("+7##########"),
                     today.plusDays(faker.number().numberBetween(3, 9)).format(formatter),
