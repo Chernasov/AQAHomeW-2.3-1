@@ -1,5 +1,6 @@
 package ru.netology.web;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 import ru.netology.web.domain.RegistrationInfo;
@@ -9,16 +10,15 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DeliveryTest {
-//    RegistrationInfo person;
-//
-//    @BeforeEach // почему не срабатывает аннотация
-//    void shouldGenerateUsingUtils() {
-//        RegistrationInfo person = DataGenerator.Registration.generateInfo("ru");
-//    }
+    RegistrationInfo person;
+
+    @BeforeEach
+     void shouldGenerateUsingUtils() {
+        person = DataGenerator.Registration.generateInfo("ru");
+    }
 
     @Test
     void shouldFormDeliveryPositive() {
-        RegistrationInfo person = DataGenerator.Registration.generateInfo("ru");
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue(person.getCity());
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
